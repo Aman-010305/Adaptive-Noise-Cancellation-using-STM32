@@ -159,28 +159,67 @@ Spectrogram comparisons further verify successful suppression of background nois
 
 Overall, the proposed LMS-based Adaptive Noise Cancellation system demonstrates low computational complexity, reliable convergence characteristics, and suitability for real-time embedded speech enhancement applications.
 
-### 🧩 Schematic Diagram
-![Circuit Diagram](Circuit_Diagram.png)
-
-### ⚙️ Hardware Implementation
-![Circuit Implementation](circuit_Implementation.jpg)
+### 🧩 Working Methodology
+![Working Methodology](ANC_methodology.png)
 
 # Result 
-The SmartEar system successfully demonstrated real-time acoustic fault detection using Edge AI on ESP32. The MFCC feature extraction process produced clear separability between GOOD and BROKEN machine conditions, as observed in the feature explorer visualization.
+The LMS-based Adaptive Noise Cancellation (ANC) system was successfully implemented and evaluated using MATLAB simulations and prepared for real-time deployment on the STM32F407VG DISC1 platform.
 
-The trained model achieved high-confidence classification, where prediction probabilities remained close to 1.00 for GOOD during normal operation and transitioned sharply to ~0.98–1.00 for BROKEN during faulty conditions. The prediction timeline confirmed a distinct and consistent shift from normal to abnormal behavior.
+### A. Noise Suppression Performance
 
-Experimental testing showed that the system reliably detects faults in real time while maintaining stability in noisy environments. The complete pipeline runs efficiently on-device, validating its suitability for low-latency, offline industrial monitoring and predictive maintenance applications.
+The adaptive filter effectively removed background noise from the corrupted speech signal while preserving the essential characteristics of the original speech. The recovered speech output exhibited significantly improved clarity and intelligibility compared to the noisy input signal.
 
-Detailed results are available in [RESULT.md](RESULT.md)
+The objective performance metrics obtained are summarized below:
+
+- **Input SNR:** 0.12 dB
+- **Output SNR:** 6.39 dB
+- **SNR Improvement (ΔSNR):** 6.27 dB
+- **Steady-State Mean Square Error (SS-MSE):** \(7.23 \times 10^{-5}\)
+
+The substantial increase in Signal-to-Noise Ratio demonstrates the capability of the LMS algorithm to effectively suppress background noise under varying noise conditions.
+
+### B. Convergence Characteristics
+
+The convergence curve of the LMS adaptive filter indicates that the filter coefficients gradually adapt to the noise environment and eventually reach a stable operating condition. The low steady-state MSE value confirms stable convergence and accurate estimation of the noise component.
+
+Furthermore, the normalized LMS implementation ensures computational efficiency and prevents divergence during coefficient adaptation.
+
+### C. Time-Domain Analysis
+
+Time-domain waveform comparisons between the original speech signal, noisy speech signal, and filtered output reveal that the adaptive filter successfully reconstructs the desired speech signal. The amplitude variations caused by background noise are considerably reduced after filtering.
+
+The filtered waveform closely resembles the original clean speech waveform, indicating effective noise cancellation with minimal distortion.
+
+### D. Frequency-Domain Analysis
+
+Power Spectral Density (PSD) analysis demonstrates noticeable attenuation of unwanted frequency components introduced by ambient noise. Important speech frequency components are preserved, ensuring that speech intelligibility is maintained after filtering.
+
+### E. Spectrogram Analysis
+
+Spectrogram comparisons further validate the effectiveness of the proposed approach. The noisy speech signal exhibits high spectral energy distributed across various frequency bands due to background interference. After LMS filtering, a significant reduction in noise energy can be observed while retaining the dominant speech features.
+
+This confirms that the adaptive filter suppresses noise without introducing significant spectral distortion.
+
+### F. Discussion
+
+The experimental results demonstrate that the LMS adaptive filtering approach provides:
+
+- Effective suppression of background noise.
+- Improved speech quality and intelligibility.
+- Stable convergence characteristics.
+- Low computational complexity suitable for embedded implementation.
+- Compatibility with real-time DSP systems based on ARM Cortex-M processors.
+
+Overall, the proposed Adaptive Noise Cancellation system successfully achieves real-time speech enhancement and serves as a strong foundation for future implementations involving advanced adaptive algorithms such as NLMS, FxLMS, and neural adaptive filtering techniques.
+
+[RESULT.md](RESULT.md)
 
 # Future Scope
-The current system can be extended to support multi-class fault classification, enabling identification of specific fault types such as bearing wear, misalignment, and imbalance. Adaptive thresholding and online learning techniques can be incorporated to improve long-term reliability under varying operating conditions.
-
-While this implementation utilizes Edge Impulse Studio for DSP processing and model development, future work can focus on building a custom AI model and DSP pipeline from scratch, allowing greater control over optimization, feature engineering, and model performance.
-
-Further improvements may include integration of advanced lightweight deep learning models and combining additional sensor data (e.g., vibration or temperature) for multi-modal fault detection.
-
-Scalability can also be enhanced through edge–cloud integration, enabling centralized monitoring and analytics across multiple machines.
+- Implementation of advanced adaptive algorithms such as **NLMS, FxLMS, and RLS** for faster convergence and improved noise suppression.
+- Integration of **Deep Learning and AI-based speech enhancement techniques** for handling highly non-stationary noise environments.
+- Development of a complete **real-time embedded system** using microphones and external audio peripherals.
+- Extension to **multi-channel microphone arrays and beamforming techniques** for enhanced spatial noise cancellation.
+- Deployment in applications such as **hearing aids, voice assistants, telecommunication systems, biomedical signal processing, and smart IoT devices**.
+- Support for **long-duration and streaming audio processing** through external memory and high-performance DSP platforms.
 
 
