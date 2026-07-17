@@ -200,6 +200,9 @@ Spectrogram comparisons further validate the effectiveness of the proposed appro
 
 This confirms that the adaptive filter suppresses noise without introducing significant spectral distortion.
 
+![Time-Domain Analysis of LMS-Based Adaptive Noise Cancellation.md](Time-Domain Analysis of LMS-Based Adaptive Noise Cancellation.md)
+
+
 ### F. Discussion
 
 The experimental results demonstrate that the LMS adaptive filtering approach provides:
@@ -212,7 +215,6 @@ The experimental results demonstrate that the LMS adaptive filtering approach pr
 
 Overall, the proposed Adaptive Noise Cancellation system successfully achieves real-time speech enhancement and serves as a strong foundation for future implementations involving advanced adaptive algorithms such as NLMS, FxLMS, and neural adaptive filtering techniques.
 
-[RESULT.md](RESULT.md)
 
 # Future Scope
 - Implementation of advanced adaptive algorithms such as **NLMS, FxLMS, and RLS** for faster convergence and improved noise suppression.
