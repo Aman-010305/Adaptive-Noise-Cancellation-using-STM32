@@ -200,8 +200,7 @@ Spectrogram comparisons further validate the effectiveness of the proposed appro
 
 This confirms that the adaptive filter suppresses noise without introducing significant spectral distortion.
 
-![Time-Domain Analysis of LMS-Based Adaptive Noise Cancellation.md](Time-Domain Analysis of LMS-Based Adaptive Noise Cancellation.md)
-
+![Time-Domain Analysis of LMS-Based Adaptive Noise Cancellation](Time-Domain Analysis of LMS-Based Adaptive Noise Cancellation.png)
 
 ### F. Discussion
 
